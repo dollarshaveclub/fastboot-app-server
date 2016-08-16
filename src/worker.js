@@ -10,12 +10,14 @@ class Worker {
     this.httpServer = options.httpServer;
     this.ui = options.ui;
     this.cache = options.cache;
+    this.initialMiddleware = options.initialMiddleware;
     this.gzip = options.gzip || false;
 
     if (!this.httpServer) {
       this.httpServer = new ExpressHTTPServer({
         ui: this.ui,
         distPath: this.distPath,
+        initialMiddleware: this.initialMiddleware,
         cache: this.cache,
         gzip: this.gzip
       });
