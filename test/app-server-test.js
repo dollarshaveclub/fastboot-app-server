@@ -70,6 +70,25 @@ describe("FastBootAppServer", function() {
       });
   });
 
+  it("executes preFastbootMiddlewares", function() {
+    return runServer('prefastboot-middleware-server')
+      .then(() => request('http://localhost:3000'))
+      .then(response => {
+        expect(response.statusCode).to.equal(418);
+        expect(response.headers['x-test-header']).to.equal('testing');
+        expect(response.body).to.equal(JSON.stringify({ send: 'json back'}));
+      });
+  });
+
+  it("executes postFastbootMiddlewares when there is an error", function() {
+    return runServer('postfastboot-middleware-server')
+      .then(() => request('http://localhost:3000'))
+      .then(response => {
+        expect(response.body).to.not.match(/error/);
+        expect(response.headers['x-test-header']).to.equal('testing');
+      })
+  });
+
 });
 
 function runServer(name) {

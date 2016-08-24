@@ -33,7 +33,9 @@ class FastBootAppServer {
         distPath: this.distPath || process.env.FASTBOOT_DIST_PATH,
         cache: this.cache,
         gzip: this.gzip,
-        httpServer: this.httpServer
+        httpServer: this.httpServer,
+        preFastbootMiddlewares: this.preFastbootMiddlewares,
+        postFastbootMiddlewares: this.postFastbootMiddlewares
       });
 
       this.worker.start();

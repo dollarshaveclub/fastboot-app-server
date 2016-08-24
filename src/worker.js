@@ -19,7 +19,9 @@ class Worker {
         ui: this.ui,
         distPath: this.distPath,
         cache: this.cache,
-        gzip: this.gzip
+        gzip: this.gzip,
+        preFastbootMiddlewares: this.preFastbootMiddlewares,
+        postFastbootMiddlewares: this.postFastbootMiddlewares,
       });
     }
 
@@ -60,7 +62,6 @@ class Worker {
   buildMiddleware() {
     this.fastboot = new FastBoot({
       distPath: this.distPath,
-      resilient: true
     });
 
     return fastbootMiddleware({
