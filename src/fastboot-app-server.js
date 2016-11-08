@@ -17,6 +17,7 @@ class FastBootAppServer {
     this.ui = options.ui;
     this.gzip = options.gzip;
     this.httpServer = options.httpServer;
+    this.staticAssetOptions = options.staticAssetOptions;
     this.beforeMiddleware = options.beforeMiddleware;
     this.afterMiddleware = options.afterMiddleware;
 
@@ -34,6 +35,7 @@ class FastBootAppServer {
         cache: this.cache,
         gzip: this.gzip,
         httpServer: this.httpServer,
+        staticAssetOptions: this.staticAssetOptions,
         beforeMiddleware: this.beforeMiddleware,
         afterMiddleware: this.afterMiddleware
       });

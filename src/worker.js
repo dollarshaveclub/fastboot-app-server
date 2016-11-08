@@ -11,6 +11,7 @@ class Worker {
     this.ui = options.ui;
     this.cache = options.cache;
     this.gzip = options.gzip;
+    this.staticAssetOptions = options.staticAssetOptions;
     this.beforeMiddleware = options.beforeMiddleware;
     this.afterMiddleware = options.afterMiddleware;
 
@@ -20,8 +21,9 @@ class Worker {
         distPath: this.distPath,
         cache: this.cache,
         gzip: this.gzip,
+        staticAssetOptions: this.staticAssetOptions,
         beforeMiddleware: this.beforeMiddleware,
-        afterMiddleware: this.afterMiddleware,
+        afterMiddleware: this.afterMiddleware
       });
     }
 
