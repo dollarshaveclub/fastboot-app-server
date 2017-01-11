@@ -67,6 +67,7 @@ class Worker {
     });
 
     return fastbootMiddleware({
+      resilient: false,
       fastboot: this.fastboot
     });
   }
